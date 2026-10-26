@@ -1,5 +1,7 @@
 # awatif-ts-viktor-demo
 
+![Awatif baseplate analysis](asset/baseplate-preview.png)
+
 Awatif TypeScript baseplate analysis in a VIKTOR WebView.
 
 - `typescript/`: source and build tools.
