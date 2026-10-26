@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="data:," />
+    <title>Awatif base plate</title>
+    <style>
+      /*__STYLES__*/
+    </style>
+  </head>
+  <body>
+    <main id="app">
+      <div id="viewport" aria-label="Interactive base plate model"></div>
+
+      <div class="solve-indicator" id="solve-indicator" role="status" aria-live="polite" hidden>
+        <span class="solve-spinner" aria-hidden="true"></span>
+        <span id="solve-detail">Solving…</span>
+      </div>
+
+      <header class="topbar">
+        <div class="identity">
+          <div>
+            <strong>AWATIF / BASE PLATE</strong>
+            <span id="mode-label">Model review</span>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <button id="fit-view" type="button">Fit view</button>
+          <button id="toggle-mesh" type="button" aria-pressed="false">Show mesh</button>
+          <button id="toggle-deformed" type="button" aria-pressed="true">Deformed</button>
+        </div>
+      </header>
+
+      <aside class="results-card" id="results-card">
+        <div class="card-heading">
+          <div>
+            <span class="eyebrow">SHELL ANALYSIS</span>
+            <h1 id="result-title">Connection model</h1>
+          </div>
+          <span class="status-pill" id="status-pill">READY</span>
+        </div>
+
+        <div class="analysis-controls" id="analysis-controls" hidden>
+          <div class="control-heading">
+            <span class="eyebrow">TUBE-TOP RESULTANTS</span>
+            <span>Compression is positive</span>
+          </div>
+
+          <div class="load-input-grid">
+            <label>
+              <span>N</span>
+              <span class="number-with-unit">
+                <input id="load-axial-compression" type="number" min="0" step="1" />
+                <small>kN</small>
+              </span>
+            </label>
+            <label>
+              <span>Vx</span>
+              <span class="number-with-unit">
+                <input id="load-shear-x" type="number" step="1" />
+                <small>kN</small>
+              </span>
+            </label>
+            <label>
+              <span>Vy</span>
+              <span class="number-with-unit">
+                <input id="load-shear-y" type="number" step="1" />
+                <small>kN</small>
+              </span>
+            </label>
+            <label>
+              <span>Mx</span>
+              <span class="number-with-unit">
+                <input id="load-moment-x" type="number" step="1" />
+                <small>kN·m</small>
+              </span>
+            </label>
+            <label>
+              <span>My</span>
+              <span class="number-with-unit">
+                <input id="load-moment-y" type="number" step="1" />
+                <small>kN·m</small>
+              </span>
+            </label>
+            <label>
+              <span>Tz</span>
+              <span class="number-with-unit">
+                <input id="load-torsion-z" type="number" step="1" />
+                <small>kN·m</small>
+              </span>
+            </label>
+          </div>
+
+          <div class="result-control-grid">
+            <label>
+              <span>Deformation <output id="deformation-scale-value">100×</output></span>
+              <input id="deformation-scale" type="range" min="1" max="500" step="1" value="100" />
+            </label>
+          </div>
+
+          <button class="calculate-button" id="calculate-analysis" type="button">Calculate</button>
+        </div>
+
+        <div class="metric-grid">
+          <article>
+            <span id="max-result-label">MAX STRESS</span>
+            <strong id="max-stress">—</strong>
+            <small id="max-result-unit">MPa</small>
+          </article>
+          <article>
+            <span id="metric-two-label">MAX DISPLACEMENT</span>
+            <strong id="max-displacement">—</strong>
+            <small id="metric-two-unit">mm</small>
+          </article>
+          <article>
+            <span id="metric-three-label">PLATE MESH</span>
+            <strong id="mesh-size">—</strong>
+            <small id="metric-three-unit">triangles</small>
+          </article>
+          <article>
+            <span id="metric-four-label">VERTICAL REACTION</span>
+            <strong id="reaction-z">—</strong>
+            <small id="metric-four-unit">kN</small>
+          </article>
+        </div>
+
+        <div class="load-block">
+          <span class="eyebrow">APPLIED RESULTANTS</span>
+          <div id="load-chips" class="load-chips"></div>
+        </div>
+
+        <details open>
+          <summary>Model assumptions</summary>
+          <p id="assumption"></p>
+        </details>
+      </aside>
+
+      <aside class="legend" id="legend" hidden>
+        <span id="legend-max">MAX</span>
+        <div class="legend-bar" aria-hidden="true"></div>
+        <span id="legend-min">MIN</span>
+        <strong id="legend-unit">MPa</strong>
+      </aside>
+
+      <div class="axis-note">Z ↑ &nbsp; · &nbsp; drag to orbit &nbsp; · &nbsp; scroll to zoom</div>
+
+      <section class="error-panel" id="error-panel" hidden>
+        <strong>Analysis could not be completed</strong>
+        <pre id="error-message"></pre>
+      </section>
+    </main>
+
+    <script>
+      window.__BASE_PLATE_PAYLOAD__ = JSON.parse(
+        new TextDecoder().decode(
+          Uint8Array.from(atob("__MODEL_PAYLOAD_BASE64__"), (character) => character.charCodeAt(0)),
+        ),
+      );
+    </script>
+    <script>
+      /*__VIEWER_BUNDLE__*/
+    </script>
+  </body>
+</html>

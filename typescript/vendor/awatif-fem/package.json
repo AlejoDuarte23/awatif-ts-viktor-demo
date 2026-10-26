@@ -1,0 +1,12 @@
+{
+  "name": "awatif-fem",
+  "version": "2.0.0-local.1",
+  "private": true,
+  "type": "module",
+  "main": "src/index.ts",
+  "types": "index.d.ts",
+  "license": "SEE LICENSE IN LICENSE",
+  "dependencies": {
+    "mathjs": "14.4.0"
+  }
+}

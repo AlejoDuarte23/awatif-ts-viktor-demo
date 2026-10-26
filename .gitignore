@@ -1,0 +1,9 @@
+.playwright-cli/
+.venv/
+__pycache__/
+*.pyc
+typescript/node_modules/
+typescript/.test-build/
+output/
+.mypy_cache/
+.ruff_cache/

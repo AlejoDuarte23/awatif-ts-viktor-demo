@@ -1,0 +1,16 @@
+contourpy==1.4.0 ; sys_platform == 'linux' or sys_platform == 'win32'
+cycler==0.12.1 ; sys_platform == 'linux' or sys_platform == 'win32'
+fonttools==4.67.0 ; sys_platform == 'linux' or sys_platform == 'win32'
+kiwisolver==1.5.1 ; sys_platform == 'linux' or sys_platform == 'win32'
+matplotlib==3.11.2 ; sys_platform == 'linux' or sys_platform == 'win32'
+meshpy==2026.1
+munch==4.0.0 ; sys_platform == 'linux' or sys_platform == 'win32'
+numpy==2.5.4
+packaging==26.3 ; sys_platform == 'linux' or sys_platform == 'win32'
+pandas==3.0.6 ; sys_platform == 'linux' or sys_platform == 'win32'
+pillow==13.0.0 ; sys_platform == 'linux' or sys_platform == 'win32'
+pyparsing==3.3.3 ; sys_platform == 'linux' or sys_platform == 'win32'
+python-dateutil==2.9.0.post0 ; sys_platform == 'linux' or sys_platform == 'win32'
+six==1.17.0 ; sys_platform == 'linux' or sys_platform == 'win32'
+tzdata==2026.5 ; sys_platform == 'win32'
+viktor==14.36.1 ; sys_platform == 'linux' or sys_platform == 'win32'
